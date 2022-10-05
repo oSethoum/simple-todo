@@ -41,11 +41,13 @@ func (r *subscriptionResolver) TodoCreated(ctx context.Context) (<-chan *models.
 
 	// append the channel to the list of lstenners
 	r.TodoChannels[&createdChannel] = createdChannel
+	println("client: ", &createdChannel, " connected")
 
 	// this is like thread, it will be waiting until the ctx is done which means the client has disconnected
 	go func() {
 		<-ctx.Done()
 		// remove the channel when the connection is closed from the client
+		println("client: ", &createdChannel, " disconnected")
 		delete(r.TodoChannels, &createdChannel)
 	}()
 
