@@ -14,5 +14,5 @@ func Init(e *echo.Echo) {
 	r.Any("ws", handlers.PlaygroundWsHandler())
 
 	r.Any("query", handlers.GraphqlHandler())
-	r.Any("subscriptions", handlers.GraphqlWsHandler())
+	r.Any("subscription", handlers.GraphqlWsHandler())
 }
