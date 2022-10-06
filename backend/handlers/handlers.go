@@ -19,12 +19,6 @@ func PlaygroundHandler(c echo.Context) error {
 	return nil
 }
 
-func PlaygroundWsHandler(c echo.Context) error {
-	h := playground.Handler("GraphQL WS", "/subscription")
-	h.ServeHTTP(c.Response(), c.Request())
-	return nil
-}
-
 func GraphqlWsHandler(c echo.Context) error {
 	h := handler.New(resolvers.ExecutableSchema())
 	h.Use(extension.Introspection{})
