@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import "./App.css";
 import { useGetTodosQuery } from "./graphql/generated";
 import { useCreateTodoMutation } from "./graphql/generated";
@@ -9,8 +9,10 @@ import { useQuery, useMutation, useSubscription, gql } from "urql";
 function App() {
   const [text, setText] = useState("");
   const [done, setDone] = useState(false);
-
-  const [getTodosResult, rexececuteQuery] = useGetTodosQuery();
+  const context = useMemo(() => ({ additionalTypenames: ["Todo"] }), []);
+  const [getTodosResult, rexececuteQuery] = useGetTodosQuery({
+    context,
+  });
 
   const [createTodoResult, createTodo] = useCreateTodoMutation();
 
