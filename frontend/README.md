@@ -27,6 +27,7 @@ generates:
     plugins:
       - "typescript"
       - "typescript-operations"
+      - "urql-introspection"
       - "typescript-urql"
 ```
 
