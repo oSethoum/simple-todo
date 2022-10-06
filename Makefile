@@ -13,7 +13,7 @@ help:
 
 #deps: @ Install dependencies
 deps:
-	cd ./frontend && \
+	@cd ./frontend && \
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
 	. ~/.bashrc && \
 	. ${NVM_DIR}/nvm.sh && \
@@ -25,21 +25,21 @@ deps:
 
 #install-frontend: @ Install frontend
 install-frontend:
-	cd ./frontend && \
+	@cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
 	pnpm install
 
 #build-frontend: @ Build frontend
 build-frontend:
-	cd ./frontend && \
+	@cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
  	pnpm run build
 
 #run-frontend: @ Run frontend
 run-frontend: install-frontend
-	cd ./frontend && \
+	@cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
 	pnpm run dev
