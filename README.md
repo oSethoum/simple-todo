@@ -1,5 +1,5 @@
-# graphql-vite
-GraphQL subscriptions client in ReactJS + Vite
+# simple-todo
+GraphQL subscriptions client in ReactJS + Vite + urql
 
 ### Requirements
 
