@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import "./App.css";
+import { useGetTodosQuery } from "./graphql/generated";
 
 import { useQuery, useMutation, useSubscription, gql } from "urql";
 
@@ -7,17 +8,7 @@ function App() {
   const [text, setText] = useState("");
   const [done, setDone] = useState(false);
 
-  const [getTodosResult, rexececuteQuery] = useQuery({
-    query: gql`
-      query {
-        getTodos {
-          id
-          text
-          done
-        }
-      }
-    `,
-  });
+  const [getTodosResult, rexececuteQuery] = useGetTodosQuery();
 
   const [createTodoResult, createTodo] = useMutation(gql`
     mutation ($input: CreateTodoInput!) {
@@ -29,7 +20,7 @@ function App() {
     }
   `);
 
-  const [subscriptionResult, sub] = useSubscription({
+  const [subscriptionResult] = useSubscription({
     query: gql`
       subscription {
         todoCreated {
@@ -88,11 +79,11 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {getTodosResult.data?.getTodos.map((todo: any) => (
-            <tr key={todo.id}>
-              <td>{todo.id}</td>
-              <td>{todo.text}</td>
-              <td>{todo.done ? "Yes" : "No"}</td>
+          {getTodosResult.data?.getTodos.map((todo) => (
+            <tr key={todo?.id}>
+              <td>{todo?.id}</td>
+              <td>{todo?.text}</td>
+              <td>{todo?.done ? "Yes" : "No"}</td>
             </tr>
           ))}
         </tbody>
