@@ -33,7 +33,6 @@ build-backend     - Build backend GraphQL API
 run-backend       - Run backend GraphQL API
 get-backend       - Download and install go backend packages
 update-backend    - Update backend dependencies to latest versions
-
 ```
 
 ## Run
