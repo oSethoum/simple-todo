@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import "./App.css";
 import { useGetTodosQuery } from "./graphql/generated";
+import { useCreateTodoMutation } from "./graphql/generated";
+import { useTodoCreatedSubscription } from "./graphql/generated";
 
 import { useQuery, useMutation, useSubscription, gql } from "urql";
 
@@ -10,27 +12,9 @@ function App() {
 
   const [getTodosResult, rexececuteQuery] = useGetTodosQuery();
 
-  const [createTodoResult, createTodo] = useMutation(gql`
-    mutation ($input: CreateTodoInput!) {
-      createTodo(input: $input) {
-        id
-        text
-        done
-      }
-    }
-  `);
+  const [createTodoResult, createTodo] = useCreateTodoMutation();
 
-  const [subscriptionResult] = useSubscription({
-    query: gql`
-      subscription {
-        todoCreated {
-          id
-          text
-          done
-        }
-      }
-    `,
-  });
+  const [subscriptionResult] = useTodoCreatedSubscription();
 
   const handleSubmit = (e: FormEvent) => {
     //prevent the page from refreshing

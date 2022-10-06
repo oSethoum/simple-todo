@@ -9,7 +9,7 @@ help:
 	@clear
 	@echo "Usage: make COMMAND"
 	@echo "Commands :"
-	@grep -E '[a-zA-Z\.\-]+:.*?@ .*$$' $(MAKEFILE_LIST)| tr -d '#' | awk 'BEGIN {FS = ":.*?@ "}; {printf "\033[32m%-16s\033[0m - %s\n", $$1, $$2}'
+	@grep -E '[a-zA-Z\.\-]+:.*?@ .*$$' $(MAKEFILE_LIST)| tr -d '#' | awk 'BEGIN {FS = ":.*?@ "}; {printf "\033[32m%-17s\033[0m - %s\n", $$1, $$2}'
 
 #deps: @ Install dependencies
 deps:
@@ -23,6 +23,11 @@ deps:
 	. ~/.bashrc && \
 	go install github.com/99designs/gqlgen@latest
 
+#clean-frontend: @ Cleanup frontend
+clean-frontend:
+	@cd ./frontend && \
+	sudo rm -rf ./dist ./node_modules
+
 #install-frontend: @ Install frontend
 install-frontend:
 	@cd ./frontend && \
@@ -30,19 +35,33 @@ install-frontend:
 	nvm use $(NODEVER) && \
 	pnpm install
 
+#generate-frontend: @ Generate frontend
+generate-frontend: install-frontend
+	@cd ./frontend && \
+	. ${NVM_DIR}/nvm.sh && \
+	nvm use $(NODEVER) && \
+	pnpm generate
+
 #build-frontend: @ Build frontend
-build-frontend:
+build-frontend: generate-frontend
 	@cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
  	pnpm run build
 
 #run-frontend: @ Run frontend
-run-frontend: install-frontend
+run-frontend: install-frontend generate-frontend
 	@cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
 	pnpm run dev
+
+#update-frontend: @ Update frontend
+update-frontend: install-frontend
+	@cd ./frontend && \
+	. ${NVM_DIR}/nvm.sh && \
+	nvm use $(NODEVER) && \
+	pnpm update
 
 #clean-backend: @ Cleanup backend
 clean-backend:

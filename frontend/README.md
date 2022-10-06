@@ -4,7 +4,7 @@ this is the frontend project of simple-todo
 
 ## generate types and hooks
 
-we use [@graphql-codegen](https://www.the-guild.dev/graphql/codegen) to gerate the necessary `types` for typescript and the `hooks` for react.
+we use [@graphql-codegen](https://www.the-guild.dev/graphql/codegen) to generate the necessary `types` for typescript and the `hooks` for react.
 
 follow the steps to add `@graphql-codegen` to the project
 
