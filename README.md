@@ -1,5 +1,5 @@
-# simple-todo
-GraphQL subscriptions client in ReactJS + Vite + urql
+# graphql-codegen-go-react
+GraphQL server in Go/gqlgen and subscription client in ReactJS + Vite + urql + codegen
 
 ## Requirements
 
