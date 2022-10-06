@@ -19,7 +19,7 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input models.CreateTo
 
 	r.Todos = append(r.Todos, &todo)
 
-	// notifying the listenners when todo is created
+	// notifying the listeners when todo is created
 
 	for key := range r.TodoChannels {
 		r.TodoChannels[key] <- &todo
@@ -35,11 +35,11 @@ func (r *queryResolver) GetTodos(ctx context.Context) ([]*models.Todo, error) {
 
 // TodoCreated is the resolver for the todoCreated field.
 func (r *subscriptionResolver) TodoCreated(ctx context.Context) (<-chan *models.Todo, error) {
-	// regisster new listnner
+	// register new listener
 	// channel has to be buffered so it doesn't block the execution
 	createdChannel := make(chan *models.Todo, 1)
 
-	// append the channel to the list of lstenners
+	// append the channel to the list of lsteners
 	r.TodoChannels[&createdChannel] = createdChannel
 	println("client: ", &createdChannel, " connected")
 
