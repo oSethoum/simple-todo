@@ -18,7 +18,7 @@ make help
 ```text
 Usage: make COMMAND
 Commands :
-help             - List available tasks
+help             - List available targets
 deps             - Install dependencies
 install-frontend - Install frontend
 build-frontend   - Build frontend

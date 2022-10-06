@@ -4,7 +4,7 @@ SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 NODEVER=v17.4.0
 GOFLAGS=-mod=mod
 
-#help: @ List available tasks
+#help: @ List available targets
 help:
 	@clear
 	@echo "Usage: make COMMAND"
