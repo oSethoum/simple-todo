@@ -49,7 +49,7 @@ clean-backend:
 	@cd ./backend && \
 	sudo rm -rf ./vendor/
 
-#generate-backend: @ Generate backend GraphQL go source code
+#generate-backend: @ Generate backend GraphQL source code
 generate-backend:
 	@cd ./backend && \
 	sudo rm -rf .graph/model && \

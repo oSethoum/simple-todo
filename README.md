@@ -24,7 +24,7 @@ install-frontend - Install frontend
 build-frontend   - Build frontend
 run-frontend     - Run frontend
 clean-backend    - Cleanup backend
-generate-backend - Generate backend GraphQL go source code
+generate-backend - Generate backend GraphQL source code
 test-backend     - Run backend tests
 build-backend    - Build backend GraphQL API
 run-backend      - Run backend GraphQL API
