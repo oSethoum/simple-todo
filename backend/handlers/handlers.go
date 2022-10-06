@@ -19,6 +19,13 @@ func PlaygroundHandler(c echo.Context) error {
 	return nil
 }
 
+func GraphqlHandler(c echo.Context) error {
+	h := handler.NewDefaultServer(resolvers.ExecutableSchema())
+	h.Use(extension.Introspection{})
+	h.ServeHTTP(c.Response(), c.Request())
+	return nil
+}
+
 func GraphqlWsHandler(c echo.Context) error {
 	h := handler.New(resolvers.ExecutableSchema())
 	h.Use(extension.Introspection{})
@@ -31,13 +38,6 @@ func GraphqlWsHandler(c echo.Context) error {
 			},
 		},
 	})
-	h.ServeHTTP(c.Response(), c.Request())
-	return nil
-}
-
-func GraphqlHandler(c echo.Context) error {
-	h := handler.NewDefaultServer(resolvers.ExecutableSchema())
-	h.Use(extension.Introspection{})
 	h.ServeHTTP(c.Response(), c.Request())
 	return nil
 }
