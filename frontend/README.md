@@ -44,4 +44,4 @@ generates:
    pnpm generate
 ```
 
-the script will search for any file `.graphl` in `src/**/*` folders and generate the needed types, make sure the backend is running in order for the `graphql-codegen` to find the `schema`.
+the script will search for any file `.graphql` in `src/**/*` folders and generate the needed types and hooks, make sure the backend is running in order for the `graphql-codegen` to find the `schema`.
