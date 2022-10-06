@@ -13,24 +13,19 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func PlaygroundHandler() echo.HandlerFunc {
+func PlaygroundHandler(c echo.Context) error {
 	h := playground.Handler("GraphQL", "/query")
-
-	return func(c echo.Context) error {
-		h.ServeHTTP(c.Response(), c.Request())
-		return nil
-	}
+	h.ServeHTTP(c.Response(), c.Request())
+	return nil
 }
 
-func PlaygroundWsHandler() echo.HandlerFunc {
+func PlaygroundWsHandler(c echo.Context) error {
 	h := playground.Handler("GraphQL WS", "/subscription")
-	return func(c echo.Context) error {
-		h.ServeHTTP(c.Response(), c.Request())
-		return nil
-	}
+	h.ServeHTTP(c.Response(), c.Request())
+	return nil
 }
 
-func GraphqlWsHandler() echo.HandlerFunc {
+func GraphqlWsHandler(c echo.Context) error {
 	h := handler.New(resolvers.ExecutableSchema())
 	h.Use(extension.Introspection{})
 	h.AddTransport(transport.POST{})
@@ -42,18 +37,13 @@ func GraphqlWsHandler() echo.HandlerFunc {
 			},
 		},
 	})
-	return func(c echo.Context) error {
-		h.ServeHTTP(c.Response(), c.Request())
-		return nil
-	}
+	h.ServeHTTP(c.Response(), c.Request())
+	return nil
 }
 
-func GraphqlHandler() echo.HandlerFunc {
+func GraphqlHandler(c echo.Context) error {
 	h := handler.NewDefaultServer(resolvers.ExecutableSchema())
 	h.Use(extension.Introspection{})
-
-	return func(c echo.Context) error {
-		h.ServeHTTP(c.Response(), c.Request())
-		return nil
-	}
+	h.ServeHTTP(c.Response(), c.Request())
+	return nil
 }
