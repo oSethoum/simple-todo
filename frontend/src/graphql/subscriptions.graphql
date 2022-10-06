@@ -1,0 +1,7 @@
+subscription TodoCreated{
+  todoCreated {
+    id
+    text
+    done
+  }
+}
