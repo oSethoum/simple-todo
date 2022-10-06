@@ -13,7 +13,7 @@ follow the steps to add `@graphql-codegen` to the project
 - install the dev dependencies:
 
 ```console
-pnpm install @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-urql graphql-tag --save-dev
+pnpm install @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-urql @graphql-codegen/urql-introspection graphql-tag --save-dev
 ```
 
 - create a file `codegen.yml`:
