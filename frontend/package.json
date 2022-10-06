@@ -10,7 +10,6 @@
     "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@graphql-codegen/urql-introspection": "^2.2.1",
     "@types/node": "^18.8.2",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.11.2",
@@ -23,6 +22,7 @@
     "@graphql-codegen/typescript": "^2.7.3",
     "@graphql-codegen/typescript-operations": "^2.5.3",
     "@graphql-codegen/typescript-urql": "^3.7.0",
+    "@graphql-codegen/urql-introspection": "^2.2.1",
     "@types/node": "^18.8.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
