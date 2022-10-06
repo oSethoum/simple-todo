@@ -16,7 +16,7 @@ follow the steps to add `@graphql-codegen` to the project
 pnpm install @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-urql graphql-tag --save-dev
 ```
 
-- create a file `codegen.yml` in the:
+- create a file `codegen.yml`:
 
 ```yml
 overwrite: true
