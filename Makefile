@@ -38,7 +38,7 @@ build-frontend:
  	pnpm run build
 
 #run-frontend: @ Run frontend
-run-frontend: install
+run-frontend: install-frontend
 	cd ./frontend && \
 	. ${NVM_DIR}/nvm.sh && \
 	nvm use $(NODEVER) && \
