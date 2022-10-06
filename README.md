@@ -29,6 +29,6 @@ test-backend     - Run backend tests
 build-backend    - Build backend GraphQL API
 run-backend      - Run backend GraphQL API
 get-backend      - Download and install go backend packages
-update-backend   - Update go backend dependencies to latest versions
+update-backend   - Update backend dependencies to latest versions
 
 ```

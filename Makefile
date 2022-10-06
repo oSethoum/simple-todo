@@ -76,7 +76,7 @@ get-backend: clean-backend
 	@cd ./backend && \
 	export GOFLAGS=$(GOFLAGS); go get . ; go mod tidy
 
-#update-backend: @ Update go backend dependencies to latest versions
+#update-backend: @ Update backend dependencies to latest versions
 update-backend: clean-backend
 	@cd ./backend && \
 	export GOFLAGS=$(GOFLAGS); go get -u; go mod tidy
